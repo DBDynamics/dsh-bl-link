@@ -10,7 +10,14 @@
 1. **装插件**（在 DSH Go 的终端里）：
 
    ```bash
-   dsh plugin --profile web add github:<owner>/dshB-Link
+   dsh plugin --profile web add github:DBDynamics/dsh-bl-link
+   ```
+
+   如果当前 DSH 版本不认 `github:` 前缀，用 git 地址或本地目录：
+
+   ```bash
+   git clone https://github.com/DBDynamics/dsh-bl-link /root/workspace/dsh-bl-link
+   dsh plugin --profile web add /root/workspace/dsh-bl-link
    ```
 
 2. **重启内核**：设置 → 插件 → dsh-bl-link → 「重启内核以重载」。

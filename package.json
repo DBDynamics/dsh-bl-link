@@ -5,6 +5,11 @@
   "description": "DSH Go 插件：通过手机本地 HTTP 桥控制 B-Link BLE 烧录器（查询状态、拉取云端固件、开始烧录），并透传目标板串口（收发/等待日志）。",
   "author": "B-Link",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DBDynamics/dsh-bl-link.git"
+  },
+  "homepage": "https://github.com/DBDynamics/dsh-bl-link#readme",
   "type": "module",
   "main": "./lib/index.js",
   "exports": {
