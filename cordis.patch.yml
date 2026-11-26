@@ -1,0 +1,8 @@
+# 安装：dsh plugin --profile web add /绝对路径/dshB-Link
+# 本机引擎在 dsh-go App 的「终端」里执行。
+#
+# 也可以在这里直接固定配置（App 的插件设置页会覆盖/合并这里）：
+# 令牌在 B-Link App 日志里复制：「本地桥已启动 http://127.0.0.1:8737 token=…」
+- insert:
+    - id: dsh-bl-link
+      name: dsh-bl-link

@@ -1,0 +1,41 @@
+{
+  "name": "dsh-bl-link",
+  "version": "0.1.2",
+  "private": true,
+  "description": "DSH Go 插件：通过手机本地 HTTP 桥控制 B-Link BLE 烧录器（查询状态、拉取云端固件、开始烧录），并透传目标板串口（收发/等待日志）。",
+  "author": "B-Link",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./view": "./lib/view.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "3.18.5 || 3.19.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": ">=0.2.1-rc.2 <0.3.0-0"
+  },
+  "engines": {
+    "node": ">=22.19",
+    "dsh": ">=0.2.1-rc.2 <0.3.0-0"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "dsh-bundle",
+    "b-link",
+    "flash"
+  ]
+}
