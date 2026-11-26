@@ -13,11 +13,18 @@
    dsh plugin --profile web add github:DBDynamics/dsh-bl-link
    ```
 
-   如果当前 DSH 版本不认 `github:` 前缀，用 git 地址或本地目录：
+   国内网络拉取 GitHub 经常 `GnuTLS recv error`，换成加速前缀（2026-11 实测可用）：
 
    ```bash
-   git clone https://github.com/DBDynamics/dsh-bl-link /root/workspace/dsh-bl-link
-   dsh plugin --profile web add /root/workspace/dsh-bl-link
+   dsh plugin --profile web add git+https://gh-proxy.org/https://github.com/DBDynamics/dsh-bl-link.git
+   ```
+
+   备用前缀：`ghfast.top`、`ghproxy.net`，拼法同上。
+   若 dsh 不认 `git+` 前缀，先克隆再按本地目录装：
+
+   ```bash
+   git clone --depth 1 https://gh-proxy.org/https://github.com/DBDynamics/dsh-bl-link.git ~/dsh-bl-link
+   dsh plugin --profile web add ~/dsh-bl-link
    ```
 
 2. **重启内核**：设置 → 插件 → dsh-bl-link → 「重启内核以重载」。
