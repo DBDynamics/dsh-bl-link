@@ -52,6 +52,18 @@ am start-foreground-service -n com.blink.service/.BlinkService
 
 服务自己会扫描并连回上次的设备。前提是已加入电池优化白名单，否则系统会拦下后台启动前台服务。
 
+桥接口（都必须带 `X-Token` 头）：
+
+| 接口 | 作用 |
+| --- | --- |
+| `GET /status` | 连接 / 目标 / 阶段 / 进度 / 上次结果 |
+| `POST /burn` | 烧录（`confirm:true`，支持 url 或 base64） |
+| `POST /uart/open` `write` `read` `close` | 目标板串口透传 |
+| `POST /service/restart` | 原地重启：断开链路、重新扫描并连回上次设备 |
+| `POST /service/stop` | 停止后台服务（先答复再退出，之后可用上面的命令唤醒） |
+
+`/service/*` 在烧录进行中会返回 `{"ok":false,"error":"busy: 正在烧录"}`。
+
 ## 验证
 
 在 DSH Go 里说一句「B-Link 现在什么状态」，应看到设备名、地址、`idle` 等真实数据。
