@@ -101,6 +101,7 @@ am start-foreground-service -n com.blink.service/.BlinkService
 | `blink_uart_write` | 发数据（`newline:true` 补 CRLF，单次 ≤8KB） |
 | `blink_uart_read` | 续读（不传 `since` 自动接上次，一次 ≤4KB） |
 | `blink_uart_wait` | 等正则匹配到再返回 |
+| `blink_service_restart` | 重启后台服务的连接链路（断开重扫、连回上次设备；不弹界面） |
 
 ## 限制
 
