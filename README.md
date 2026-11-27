@@ -35,6 +35,23 @@
 不需要填令牌：B-Link App 启动时会把自己导出的桥信息写到
 `/sdcard/Download/DSH-GO/blink-bridge.json`，插件默认 `token=auto` 直接读它。
 
+## 后台服务版（推荐）
+
+`serviceB-Link` 是一个独立的后台服务 App（包名 `com.blink.service`），桥、BLE、烧录全部在服务里，
+不依赖界面，因此插件调用时**不会弹出任何窗口**。
+
+1. 安装 `serviceB-Link` 的 APK，打开一次：授权蓝牙通知 → 加入电池优化白名单 → 允许自启动；
+2. 它会把自己的桥信息导出到 `/sdcard/Download/DSH-GO/blink-service.json`，端口 **8738**；
+3. 插件 `token=auto` 时优先读这个文件（服务版存在就用 8738，否则退回 App 的 8737），无需改配置。
+
+进程被系统杀掉后，插件用下面的命令无界面拉起：
+
+```bash
+am start-foreground-service -n com.blink.service/.BlinkService
+```
+
+服务自己会扫描并连回上次的设备。前提是已加入电池优化白名单，否则系统会拦下后台启动前台服务。
+
 ## 验证
 
 在 DSH Go 里说一句「B-Link 现在什么状态」，应看到设备名、地址、`idle` 等真实数据。

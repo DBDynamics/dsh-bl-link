@@ -1,6 +1,6 @@
 {
   "name": "dsh-bl-link",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "description": "DSH Go 插件：通过手机本地 HTTP 桥控制 B-Link BLE 烧录器（查询状态、拉取云端固件、开始烧录），并透传目标板串口（收发/等待日志）。",
   "author": "B-Link",
